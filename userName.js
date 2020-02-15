@@ -1,23 +1,23 @@
-const UserNameController = document.querySelector(".js-user");
-const UserNameEnter = document.querySelector(".js-form");
+const UserNameContainer = document.querySelector(".js-name");
+const UserNameEnter = UserNameContainer.querySelector(".js-nameEnter");
+const UserNameIndicator= UserNameContainer.querySelector(".js-nameIndicator");
+const UserNameTitle = UserNameIndicator.querySelector("h1");
 var UserName;
 
-function setName() {
-    localStorage.setItem("username",null);
-    // 입력한 이름을 username에 추가 하는 코드
+function setName(){
     localStorage.setItem("username","HaiSeong");
     UserName = localStorage.getItem("username");
 }
 
 function printName(name){
-    if(UserName === null){ // 이름 아직 입력 안한 상태
-        UserNameController.querySelector("display") = "none";
-        UserNameEnter.querySelector("input").querySelector("display") = "block";
+    if(name === null){
+        // 이름이 입력 안될 경우
+        UserNameTitle.innerText=null;
     }
-    else{ // 이름 입력 상태
-        UserNameController.querySelector("h1").innerText = `Hi ${name}`;
-        UserNameController.querySelector("display") = "block";
-        UserNameEnter.querySelector("display") = "none";
+    else{
+        // 이름이 입력되어있는 경우
+        UserNameTitle.innerText = `Hi ${name}`;
+        UserNameEnter.remove();
     }
 }
 
