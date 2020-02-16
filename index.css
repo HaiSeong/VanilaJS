@@ -1,6 +1,12 @@
-js-nameIndicator {
+
+.js-nameEnter{
+    display: block;
+}
+
+.js-nameIndicator{
     display: none;
 }
-js-nameEnter {
+
+.showing {
     display: block;
 }
